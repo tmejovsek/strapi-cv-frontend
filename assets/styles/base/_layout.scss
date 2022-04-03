@@ -1,0 +1,32 @@
+/*! layout */
+
+@use '../utilities/mq';
+
+.container {
+  max-width: mq.$layout-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.container-cols {
+  @include mq.media('>desktop') {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.container-cols__main {
+  @include mq.media('>desktop') {
+    flex: 1;
+    margin-right: 50px;
+  }
+}
+
+.container-cols__aside {
+  @include mq.media('>desktop') {
+    max-width: 400px;
+  }
+}

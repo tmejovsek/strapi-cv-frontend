@@ -1,0 +1,30 @@
+/*! title */
+
+@use '../utilities/colors';
+@use '../utilities/fonts';
+@use '../utilities/mq';
+
+.title {
+  display: inline-block;
+  padding-bottom: 2px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid colors.$text;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: fonts.$montserrat;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+
+  @include mq.media('>tablet') {
+    font-size: 2.5rem;
+  }
+
+  span {
+    display: block;
+  }
+}
+
+.title--white {
+  color: #fff;
+  border-color: #fff;
+}

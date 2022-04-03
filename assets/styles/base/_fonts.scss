@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+@use '../utilities/functions' as func;
+
+/*! Lato */
+
+$lato-font: (
+  regular: 400 normal,
+  700: 700 normal,
+);
+
+@each $variant-name, $variant-data in $lato-font {
+  $base: 'lato/lato-v22-latin-' + $variant-name;
+  @font-face {
+    font-family: 'Lato';
+    font-style: nth($variant-data, 2);
+    font-weight: nth($variant-data, 1);
+    src: func.font(($base + '.woff2')) format('woff2'),
+      func.font(($base + '.woff')) format('woff');
+  }
+}
+
+/*! Montserrat Mono */
+
+$montserrat-font: (
+  regular: 400 normal,
+  500: 500 normal,
+  600: 600 normal,
+  700: 700 normal,
+  800: 800 normal,
+);
+
+@each $variant-name, $variant-data in $montserrat-font {
+  $base: 'montserrat/montserrat-v23-latin-' + $variant-name;
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: nth($variant-data, 2);
+    font-weight: nth($variant-data, 1);
+    src: func.font(($base + '.woff2')) format('woff2'),
+      func.font(($base + '.woff')) format('woff');
+  }
+}
