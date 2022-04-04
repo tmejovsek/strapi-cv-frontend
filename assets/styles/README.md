@@ -6,20 +6,20 @@ Reference: [Sass Guidelines](http://sass-guidelin.es/) > [Architecture](http://s
 
 ## Important notes
 
-If you can, __always try to use components__. If you can't and this is too difficult to code it that way, you can refer to the next section.
+If you can, **always try to use components**. If you can't and this is too difficult to code it that way, you can refer to the next section.
 
 ## Tips for extending
 
 If you want to extend your codebase, you can use some other folder to keep it ordered.
 
-* layout
+- layout
 
   Can be used to add layout specific styles. Used for example for header, footer or sidebar components.
 
-* page
+- page
 
   Can be used to add page-specific styles, like Homepage.
 
-* themes
+- themes
 
   Contain all your theme files if you want to keept it in differents files.

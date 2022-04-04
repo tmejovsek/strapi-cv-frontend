@@ -46,7 +46,7 @@ export default {
 
   strapi: {
     entities: ['homepage'],
-    url: 'http://localhost:1337/api',
+    url: `${process.env.API_URL}/api`,
   },
 
   markdownit: {

@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 @use 'utilities/mq';
 
 // all the default settings for your container and grid
@@ -7,10 +7,8 @@ $global-width: mq.$layout-width !default;
 $grid-columns: 12 !default;
 $grid-gutters: 30px !default;
 
-
 $available-gutter-type: 'margin', 'padding';
 $available-cell-keywords: 'auto', 'full', 'fit';
-
 
 /// Create grid container.
 ///
@@ -26,8 +24,8 @@ $available-cell-keywords: 'auto', 'full', 'fit';
 @mixin wrapper(
   $width: $global-width,
   $padding: math.div($grid-gutters, 2),
-  $type: null)
-{
+  $type: null
+) {
   margin-left: auto;
   margin-right: auto;
 
@@ -56,11 +54,7 @@ $available-cell-keywords: 'auto', 'full', 'fit';
 ///   (size of the gutters defined by default in the global parameters of the grid).
 /// @param {boolean} $margin-negative
 ///   Remove the outer margins of the grid (true by default).
-@mixin grid(
-  $wrap: true,
-  $gutters: $grid-gutters,
-  $margin-negative: true)
-{
+@mixin grid($wrap: true, $gutters: $grid-gutters, $margin-negative: true) {
   display: flex;
 
   @if $wrap {
@@ -75,7 +69,6 @@ $available-cell-keywords: 'auto', 'full', 'fit';
     margin-right: math.div($gutters, -2);
   }
 }
-
 
 /// Create grid cell.
 ///
@@ -92,11 +85,7 @@ $available-cell-keywords: 'auto', 'full', 'fit';
 ///   You can decide if the gutters are "margin" or "padding" using these keywords.
 ///   You can use the "none" keyword to remove the margins from your cell.
 ///   ("margin" by default).
-@mixin cell(
-  $size: 'full',
-  $gutters: $grid-gutters,
-  $gutter-type: 'margin')
-{
+@mixin cell($size: 'full', $gutters: $grid-gutters, $gutter-type: 'margin') {
   // error messages
   @if type-of($size) == 'string' {
     @if not index($available-cell-keywords, $size) {
@@ -106,7 +95,6 @@ $available-cell-keywords: 'auto', 'full', 'fit';
   @if not index($available-gutter-type, $gutter-type) {
     @error '"#{$gutter-type}" is not a possible type of gutter, you can use the "margin", "padding" or "none" keywords.';
   }
-
 
   @if $size != 'auto' {
     flex: 0 0 auto;
@@ -136,7 +124,6 @@ $available-cell-keywords: 'auto', 'full', 'fit';
   }
 }
 
-
 /// Add grid cell offset.
 ///
 /// @param {number (unitless)} $size
@@ -148,20 +135,16 @@ $available-cell-keywords: 'auto', 'full', 'fit';
 /// @param {string} $gutter-type
 ///   Must be the same type which is defined in the mixin "cell".
 ///   ("margin" by default).
-@mixin cell-offset(
-  $size: 1,
-  $gutters: $grid-gutters,
-  $gutter-type: 'margin'
-)
-{
+@mixin cell-offset($size: 1, $gutters: $grid-gutters, $gutter-type: 'margin') {
   // error messages
   @if not index($available-gutter-type, $gutter-type) {
     @error '"#{$gutter-type}" is not a possible type of gutter, you can use the "margin" or "padding" keywords.';
   }
 
-
   @if $gutter-type == 'margin' {
-    margin-left: calc(#{math.div(100%, $grid-columns) * $size} + #{math.div($gutters, 2)});
+    margin-left: calc(
+      #{math.div(100%, $grid-columns) * $size} + #{math.div($gutters, 2)}
+    );
   } @else {
     margin-left: calc(#{math.div(100%, $grid-columns) * $size});
   }

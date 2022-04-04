@@ -2,7 +2,7 @@ $layout-width: 1200px;
 
 $breakpoints-list: (
   'tablet': 700px,
-  'desktop': 1100px
+  'desktop': 1100px,
 ) !default;
 
 // Default media expressions list (you can override it if you want)
@@ -17,10 +17,10 @@ $breakpoints-list: (
 // ) !default;
 
 // Include-media library documentation here : https://eduardoboucas.github.io/include-media/documentation/
-@forward "node_modules/include-media/dist/include-media" with (
-  $breakpoints: $breakpoints-list,
-  // $media-expressions: $media-expressions-list
-);
+@forward 'node_modules/include-media/dist/include-media' with (
+    $breakpoints: $breakpoints-list,
+    // $media-expressions: $media-expressions-list
+  );
 
 // How to use include-media system :
 // 1. Import mq file in your scss stylesheet : "@use 'utilities/mq';". After that, you can use the "media" mixin as shown below
