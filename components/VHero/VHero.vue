@@ -1,16 +1,16 @@
 <template>
-  <div class="app-hero">
-    <div class="app-hero__container container">
-      <div class="app-hero__image">
+  <div class="v-hero">
+    <div class="v-hero__container container">
+      <div class="v-hero__image">
         <img :src="api_url + avatar.src" :alt="avatar.alt" />
       </div>
-      <div class="app-hero__content">
-        <h1 class="app-hero__title" v-html="title"></h1>
-        <p class="app-hero__subtitle">{{ description }}</p>
-        <p class="app-hero__quote">{{ quote }}</p>
+      <div class="v-hero__content">
+        <h1 class="v-hero__title" v-html="title"></h1>
+        <p class="v-hero__subtitle">{{ description }}</p>
+        <p class="v-hero__quote">{{ quote }}</p>
       </div>
-      <div class="app-hero__btn">
-        <app-btn :href="api_url + pdf" target="_blank">
+      <div class="v-hero__btn">
+        <v-btn :href="api_url + pdf" target="_blank">
           <svg
             class="icon"
             fill="none"
@@ -24,17 +24,17 @@
             />
           </svg>
           {{ btn_text }}
-        </app-btn>
+        </v-btn>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AppBtn from '@/components/AppBtn/AppBtn'
+import VBtn from '@/components/VBtn/VBtn'
 export default {
-  name: 'AppHero',
-  components: { AppBtn },
+  name: 'VHero',
+  components: { VBtn },
   props: {
     title: {
       type: String,
@@ -74,7 +74,7 @@ export default {
 @use 'utilities/fonts';
 @use 'utilities/mq';
 
-.app-hero {
+.v-hero {
   margin: 20px 0 50px;
   font-family: fonts.$montserrat;
 
@@ -83,14 +83,14 @@ export default {
   }
 }
 
-.app-hero__container {
+.v-hero__container {
   @include mq.media('>tablet') {
     display: flex;
     flex-wrap: wrap;
   }
 }
 
-.app-hero__image {
+.v-hero__image {
   flex-shrink: 0;
   position: relative;
   padding: 30px;
@@ -119,7 +119,7 @@ export default {
   }
 }
 
-.app-hero__content {
+.v-hero__content {
   max-width: 330px;
 
   @include mq.media('<tablet') {
@@ -127,7 +127,7 @@ export default {
   }
 }
 
-.app-hero__title {
+.v-hero__title {
   margin: 0 0 10px;
   font-size: 4rem;
   text-transform: uppercase;
@@ -145,7 +145,7 @@ export default {
   }
 }
 
-.app-hero__subtitle {
+.v-hero__subtitle {
   font-size: 1.75rem;
   font-weight: 400;
   letter-spacing: 5px;
@@ -156,14 +156,14 @@ export default {
   }
 }
 
-.app-hero__quote {
+.v-hero__quote {
   margin-top: 30px;
   font-style: italic;
   font-weight: 500;
   line-height: 1.5;
 }
 
-.app-hero__btn {
+.v-hero__btn {
   align-self: center;
   flex: 1;
   white-space: nowrap;

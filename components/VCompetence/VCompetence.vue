@@ -1,15 +1,15 @@
 <template>
-  <div class="app-competence">
+  <div class="v-competence">
     <h2 class="title">{{ title }}</h2>
-    <div class="app-competence__content">
+    <div class="v-competence__content">
       <div
         v-for="competence in competences"
         :key="competence.id"
-        class="app-competence__item"
+        class="v-competence__item"
       >
-        <h3 class="app-competence__sub-title" v-html="competence.title"></h3>
+        <h3 class="v-competence__sub-title" v-html="competence.title"></h3>
         <ul
-          class="app-competence__list"
+          class="v-competence__list"
           v-html="$md.render(competence.content)"
         ></ul>
       </div>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'AppCompetence',
+  name: 'VCompetence',
   props: {
     title: {
       type: String,
@@ -37,7 +37,7 @@ export default {
 @use 'utilities/fonts';
 @use 'utilities/mq';
 
-.app-competence__content {
+.v-competence__content {
   display: flex;
   flex-wrap: wrap;
   max-width: 750px;
@@ -47,7 +47,7 @@ export default {
   }
 }
 
-.app-competence__item {
+.v-competence__item {
   flex: 1 1 calc(50% - 10px);
   margin: 20px 10px 0 0;
 
@@ -57,7 +57,7 @@ export default {
   }
 }
 
-.app-competence__sub-title {
+.v-competence__sub-title {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -71,7 +71,7 @@ export default {
   }
 }
 
-.app-competence__list {
+.v-competence__list {
   font-family: fonts.$montserrat;
   font-weight: 500;
 

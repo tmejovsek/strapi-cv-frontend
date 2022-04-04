@@ -1,7 +1,7 @@
 <template>
   <component
     :is="tag"
-    class="app-btn"
+    class="v-btn"
     :href="href ? href : false"
     @click="$emit('click')"
   >
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'AppBtn',
+  name: 'VBtn',
   props: {
     href: {
       type: String,
@@ -30,7 +30,7 @@ export default {
 @use 'utilities/colors';
 @use 'utilities/fonts';
 
-.app-btn {
+.v-btn {
   display: inline-block;
   width: auto;
   padding: 10px 20px;

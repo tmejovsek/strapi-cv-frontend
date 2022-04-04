@@ -1,6 +1,6 @@
 <template>
   <main>
-    <app-hero
+    <v-hero
       v-if="hero"
       :title="hero.title"
       :description="hero.description"
@@ -12,31 +12,31 @@
 
     <div class="container container-cols">
       <div class="container-cols__main">
-        <app-experience
+        <v-experience
           v-if="homepage.experience"
           :title="homepage.experience_title"
           :experiences="experience"
         />
-        <app-competence
+        <v-competence
           v-if="competences"
           :title="homepage.competence_title"
           :competences="competences"
-        ></app-competence>
+        ></v-competence>
       </div>
-      <app-aside class="container-cols__aside" :content="aside"></app-aside>
+      <v-aside class="container-cols__aside" :content="aside"></v-aside>
     </div>
   </main>
 </template>
 
 <script>
-import AppAside from '@/components/AppAside/AppAside'
-import AppHero from '@/components/AppHero/AppHero'
-import AppExperience from '@/components/AppExperience/AppExperience'
-import AppCompetence from '@/components/AppCompetence/AppCompetence'
+import VAside from '@/components/VAside/VAside'
+import VHero from '@/components/VHero/VHero'
+import VExperience from '@/components/VExperience/VExperience'
+import VCompetence from '@/components/VCompetence/VCompetence'
 
 export default {
   name: 'IndexPage',
-  components: { AppHero, AppExperience, AppAside, AppCompetence },
+  components: { VHero, VExperience, VAside, VCompetence },
   async asyncData({ $strapi, $config }) {
     const fetchHomepage = await $strapi.$homepage.find({
       populate: [
@@ -76,11 +76,6 @@ export default {
     }
 
     return { homepage, hero, experience, competences, aside }
-  },
-  data() {
-    return {
-      error: null,
-    }
   },
 }
 </script>

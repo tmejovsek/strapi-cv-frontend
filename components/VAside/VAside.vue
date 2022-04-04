@@ -1,28 +1,28 @@
 <template>
-  <aside class="app-aside">
-    <app-aside-item
+  <aside class="v-aside">
+    <aside-item
       :title="content.training_title"
       :items="content.trainings"
-    ></app-aside-item>
+    ></aside-item>
 
-    <app-aside-item
+    <aside-item
       :title="content.volunteering_title"
       :items="content.volunteerings"
-    ></app-aside-item>
+    ></aside-item>
 
-    <app-aside-item
+    <aside-item
       :title="content.hobbies_title"
       :items="content.hobbies"
-    ></app-aside-item>
+    ></aside-item>
   </aside>
 </template>
 
 <script>
-import AppAsideItem from '@/components/AppAsideItem/AppAsideItem'
+import AsideItem from '@/components/AsideItem/AsideItem'
 
 export default {
-  name: 'AppAside',
-  components: { AppAsideItem },
+  name: 'VAside',
+  components: { AsideItem },
   props: {
     content: {
       type: Object,
@@ -36,7 +36,7 @@ export default {
 @use 'utilities/colors';
 @use 'utilities/mq';
 
-.app-aside {
+.v-aside {
   width: 100%;
   min-height: 500px;
   padding: 30px 40px;
